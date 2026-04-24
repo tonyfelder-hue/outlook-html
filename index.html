@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juneteenth Party in a Box - BRG Chapter Guide</title>
+    <!-- Dependencies: Only Tailwind CSS and FontAwesome remain. No React or Babel needed. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --jt-red: #C8102E;
+            --jt-green: #00843D;
+            --jt-gold: #FFB81C;
+            --jt-black: #101820;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #FDFCFB;
+            color: #1a1a1a;
+        }
+
+        .jt-title { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slideUp 0.5s ease-out forwards; }
+        
+        /* Utility to hide tabs */
+        .hidden-tab { display: none; }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex flex-col">
+        
+        <!-- Hero Header -->
+        <header class="relative bg-[#101820] text-white pt-20 pb-24 px-6 overflow-hidden">
+            <!-- Cultural Pattern Overlay -->
+            <div class="absolute inset-0 opacity-10 flex flex-wrap justify-center items-center pointer-events-none" style="font-size: 4rem;">
+                <div class="w-full h-full absolute grid grid-cols-6 gap-4 p-4">
+                    <i class="fa-solid fa-burst opacity-20"></i><i class="fa-solid fa-burst opacity-20"></i>
+                    <i class="fa-solid fa-burst opacity-20"></i><i class="fa-solid fa-burst opacity-20"></i>
+                    <i class="fa-solid fa-burst opacity-20"></i><i class="fa-solid fa-burst opacity-20"></i>
+                    <i class="fa-solid fa-burst opacity-20"></i><i class="fa-solid fa-burst opacity-20"></i>
+                    <i class="fa-solid fa-burst opacity-20"></i><i class="fa-solid fa-burst opacity-20"></i>
+                    <i class="fa-solid fa-burst opacity-20"></i><i class="fa-solid fa-burst opacity-20"></i>
+                </div>
+            </div>
+            
+            <div class="relative max-w-5xl mx-auto text-center">
+                <div class="inline-flex items-center space-x-2 bg-red-600/20 text-red-500 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-red-500/30">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>National Black Professionals and Allies BRG Chapter Resource</span>
+                </div>
+                <h1 class="jt-title text-6xl md:text-8xl font-black mb-6 tracking-tighter">
+                    JUNETEENTH <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-green-500">
+                        PARTY IN A BOX
+                    </span>
+                </h1>
+                <div class="w-32 h-1.5 bg-yellow-500 mx-auto mb-8 rounded-full"></div>
+                <p class="jt-title text-2xl md:text-3xl font-light italic text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    "Freedom: Yesterday's Legacy, Today's Promise, Tomorrow's Hope"
+                </p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="sticky top-0 z-50 bg-white border-b shadow-sm overflow-x-auto no-scrollbar">
+            <div class="max-w-5xl mx-auto flex justify-center" id="tab-navigation">
+                <button onclick="switchTab('overview')" data-tab="overview" class="tab-button flex items-center space-x-2 px-6 py-4 font-bold text-sm uppercase tracking-wider transition-all border-b-2 whitespace-nowrap border-red-600 text-red-700 bg-red-50/50">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Overview</span>
+                </button>
+                <button onclick="switchTab('planning')" data-tab="planning" class="tab-button flex items-center space-x-2 px-6 py-4 font-bold text-sm uppercase tracking-wider transition-all border-b-2 whitespace-nowrap border-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-50">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Planning</span>
+                </button>
+                <button onclick="switchTab('menu')" data-tab="menu" class="tab-button flex items-center space-x-2 px-6 py-4 font-bold text-sm uppercase tracking-wider transition-all border-b-2 whitespace-nowrap border-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-50">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>Food & Drinks</span>
+                </button>
+                <button onclick="switchTab('activities')" data-tab="activities" class="tab-button flex items-center space-x-2 px-6 py-4 font-bold text-sm uppercase tracking-wider transition-all border-b-2 whitespace-nowrap border-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-50">
+                    <i class="fa-solid fa-masks-theater"></i>
+                    <span>Engagement</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Content Area -->
+        <main class="flex-grow max-w-5xl mx-auto w-full px-4 py-12">
+            
+            <!-- OVERVIEW TAB -->
+            <div id="tab-overview" class="tab-content animate-slide-up space-y-12">
+                <div class="glass-card rounded-3xl p-8 md:p-12 border-l-8 border-green-700 shadow-xl">
+                    <div class="mb-8">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <div class="p-2 rounded-lg bg-gray-100 text-green-700">
+                                <i class="fa-solid fa-flag text-xl"></i>
+                            </div>
+                            <h2 class="jt-title text-3xl font-black tracking-tight">The Vision</h2>
+                        </div>
+                        <p class="text-gray-500 font-medium ml-12">Transforming a day into a week of movement.</p>
+                    </div>
+                    
+                    <p class="text-xl leading-relaxed text-gray-700 mb-8">
+                        Juneteenth is more than a date, it is a celebration of resilience. This guide empowers your local chapter to host a gathering that isn't just a "party," but a moment of <strong>true understanding and community.</strong> 
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="p-6 rounded-2xl bg-red-50 border border-red-100">
+                            <h3 class="font-bold text-red-800 text-xl mb-3 jt-title">Yesterday's Legacy</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Honoring the ancestors, educating our teams on June 19, 1865, and acknowledging the triumph of liberation.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-yellow-50 border border-yellow-100">
+                            <h3 class="font-bold text-yellow-800 text-xl mb-3 jt-title">Today's Promise</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Spotlighting Black excellence within our firm today and supporting local Black-owned businesses.</p>
+                        </div>
+                        <div class="p-6 rounded-2xl bg-green-50 border border-green-100">
+                            <h3 class="font-bold text-green-800 text-xl mb-3 jt-title">Tomorrow's Hope</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Looking forward. Commitments to build a legacy of equity and freedom for future generations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-3xl p-8 border border-gray-200 border-l-8 border-l-[#C8102E] shadow-sm relative overflow-hidden">
+                        <h3 class="font-bold text-2xl mb-4 flex items-center text-[#C8102E]">
+                            <i class="fa-regular fa-calendar mr-3"></i> Spread the Joy: A Week of Celebration
+                        </h3>
+                        <p class="text-gray-700 mb-6 text-lg">
+                            Why limit the celebration to just one day? We encourage chapters to stretch the festivities throughout the week!
+                        </p>
+                        <ul class="space-y-4 text-base">
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-[#C8102E] mr-3 text-3xl leading-none mt-[-4px]">•</span>
+                                <span><strong>Monday:</strong> "Yesterday's Legacy" educational outreach.</span>
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-[#101820] mr-3 text-3xl leading-none mt-[-4px]">•</span>
+                                <span><strong>Tuesday:</strong> Cultural Playlist and virtual background share.</span>
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-[#00843D] mr-3 text-3xl leading-none mt-[-4px]">•</span>
+                                <span><strong>Wednesday:</strong> Mid-week Trivia or Black-owned catering.</span>
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-[#FFB81C] mr-3 text-3xl leading-none mt-[-4px]">•</span>
+                                <span><strong>Thursday:</strong> Main Event! Block party or office mixer.</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-8 p-5 bg-[#F8F9FA] border border-gray-100 rounded-xl">
+                            <p class="text-gray-500 italic text-[15px]">
+                                * Note: Don't settle on Thursday! You can host the main event on any day that works best for your chapter.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 text-white rounded-3xl p-8 border border-gray-800 shadow-xl flex flex-col justify-center relative overflow-hidden">
+                        <div class="absolute -bottom-4 -right-4 opacity-10"><i class="fa-solid fa-mug-hot text-9xl"></i></div>
+                        <h3 class="font-bold text-2xl mb-4 text-yellow-500 flex items-center">
+                            <i class="fa-solid fa-bolt-lightning mr-3"></i> The Freedom Friday Nudge
+                        </h3>
+                        <div class="bg-white/10 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
+                            <p class="text-sm leading-relaxed text-gray-200 italic">
+                                "Chapter Leaders: We suggest nudging your office leadership to support a flexible schedule. Encourage teams to put in extra time Monday-Thursday so they can fully disconnect and celebrate on Friday."
+                            </p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4 font-bold uppercase tracking-widest">A gift of time is the best way to honor freedom.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLANNING TAB -->
+            <div id="tab-planning" class="tab-content hidden-tab max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="p-2 rounded-lg bg-gray-100 text-red-600">
+                            <i class="fa-solid fa-check-double text-xl"></i>
+                        </div>
+                        <h2 class="jt-title text-3xl font-black tracking-tight">The Checklist</h2>
+                    </div>
+                    <p class="text-gray-500 font-medium ml-12">Step-by-step to a successful block party.</p>
+                </div>
+                
+                <div id="checklist-container">
+                    <!-- JavaScript will populate this area -->
+                </div>
+            </div>
+
+            <!-- MENU TAB -->
+            <div id="tab-menu" class="tab-content hidden-tab space-y-12">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200">
+                    <div class="bg-red-800 p-10 text-white flex flex-col md:flex-row md:items-center justify-between">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-utensils text-4xl mr-6 text-yellow-500"></i>
+                            <div>
+                                <h2 class="jt-title text-4xl font-black mb-1">The Feast</h2>
+                                <p class="text-red-100 font-medium">Culturally Relevant Food Traditions</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 md:mt-0 px-4 py-2 bg-white/10 rounded-full border border-white/20 text-xs font-black uppercase tracking-widest">
+                            Supporting Black-Owned Caterers
+                        </div>
+                    </div>
+                    <div class="p-8 md:p-12">
+                        <div class="mb-12 bg-red-50 p-6 rounded-2xl border-l-8 border-red-600">
+                            <h3 class="font-bold text-red-800 flex items-center mb-2"><i class="fa-solid fa-circle-info mr-2"></i> Why the Focus on Red?</h3>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                Red symbolizes the resilience and strength of enslaved ancestors. In West African traditions, red Kola nuts and Hibiscus flowers were offered as signs of hospitality and celebration.
+                            </p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-10">
+                            <div class="space-y-6">
+                                <h3 class="jt-title text-2xl font-bold border-b pb-4 flex items-center">
+                                    <i class="fa-solid fa-fire-burner mr-3 text-red-600"></i> Mains & Sides
+                                </h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <div class="font-bold text-red-700 mr-3">01</div>
+                                        <div><strong class="block text-gray-900">The BBQ Pit</strong><span class="text-sm text-gray-500">Slow-smoked brisket, ribs, or chicken, the heart of the block party.</span></div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="font-bold text-red-700 mr-3">02</div>
+                                        <div><strong class="block text-gray-900">Collard Greens</strong><span class="text-sm text-gray-500">Traditional "prosperity" sides, slow-braised with smoked turkey or spices.</span></div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="font-bold text-red-700 mr-3">03</div>
+                                        <div><strong class="block text-gray-900">Jerk & Soul Fusion</strong><span class="text-sm text-gray-500">A nod to the wider diaspora, Jerk chicken or Caribbean empanadas.</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="space-y-6">
+                                <h3 class="jt-title text-2xl font-bold border-b pb-4 flex items-center">
+                                    <i class="fa-solid fa-cake-candles mr-3 text-red-600"></i> Sweet Traditions
+                                </h3>
+                                <ul class="space-y-4">
+                                    <li class="flex items-start">
+                                        <div class="font-bold text-red-700 mr-3">01</div>
+                                        <div><strong class="block text-gray-900">Red Velvet Cake</strong><span class="text-sm text-gray-500">The essential Juneteenth dessert, striking red cocoa cake with cream cheese frosting.</span></div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="font-bold text-red-700 mr-3">02</div>
+                                        <div><strong class="block text-gray-900">Southern Tea Cakes</strong><span class="text-sm text-gray-500">Simple, nostalgic cookies that date back generations in Black households.</span></div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="font-bold text-red-700 mr-3">03</div>
+                                        <div><strong class="block text-gray-900">Iced Watermelon</strong><span class="text-sm text-gray-500">A refreshing, natural red treat that screams summer and celebration.</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#101820] rounded-3xl shadow-xl overflow-hidden border border-gray-800">
+                    <div class="p-10 border-b border-gray-800 flex items-center justify-between">
+                        <div>
+                            <h2 class="jt-title text-3xl font-black text-white mb-1">The Libation Station</h2>
+                            <p class="text-gray-400 font-medium italic">"Pouring out honors to the past."</p>
+                        </div>
+                        <i class="fa-solid fa-wine-glass-empty text-4xl text-yellow-500"></i>
+                    </div>
+                    <div class="p-8 md:p-12 space-y-12">
+                        <!-- Non-Alcoholic Section -->
+                        <div>
+                            <div class="inline-flex items-center px-4 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-black uppercase tracking-widest border border-green-500/20 mb-6">
+                                Zero-Proof / Non-Alcoholic
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 relative">
+                                    <i class="fa-solid fa-mug-hot absolute top-6 right-6 text-white/10 text-xl"></i>
+                                    <h4 class="text-xl font-bold text-red-500 mb-2 pr-8">Traditional Hibiscus "Red Drink"</h4>
+                                    <p class="text-sm text-gray-300 mb-4">The ultimate Juneteenth staple. Sweet, tart, and deeply refreshing.</p>
+                                    <div class="bg-white/10 p-3 rounded-lg text-sm text-gray-300">
+                                        <span class="font-bold text-gray-100">Recipe idea:</span> Dried hibiscus flowers, steeped with ginger, cloves, and cane sugar. Serve over ice with a lime wheel.
+                                    </div>
+                                </div>
+                                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 relative">
+                                    <i class="fa-solid fa-mug-hot absolute top-6 right-6 text-white/10 text-xl"></i>
+                                    <h4 class="text-xl font-bold text-yellow-500 mb-2 pr-8">Jubilee Watermelon Lemonade</h4>
+                                    <p class="text-sm text-gray-300 mb-4">A visually stunning red beverage perfect for summer office parties.</p>
+                                    <div class="bg-white/10 p-3 rounded-lg text-sm text-gray-300">
+                                        <span class="font-bold text-gray-100">Recipe idea:</span> Freshly blended watermelon juice mixed with tart lemonade. Garnish with mint sprigs.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alcoholic Section -->
+                        <div>
+                            <div class="inline-flex items-center px-4 py-1 rounded-full bg-red-500/10 text-red-400 text-xs font-black uppercase tracking-widest border border-red-500/20 mb-6">
+                                Contains Alcohol (21+)
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 relative">
+                                    <i class="fa-solid fa-wine-glass absolute top-6 right-6 text-white/10 text-xl"></i>
+                                    <h4 class="text-xl font-bold text-gray-100 mb-2 pr-8">The 1865 Bourbon Smash</h4>
+                                    <p class="text-sm text-gray-300 mb-4">A nod to the history of Black mixologists in the American South.</p>
+                                    <div class="bg-white/10 p-3 rounded-lg text-sm text-gray-300">
+                                        <span class="font-bold text-gray-100">Recipe idea:</span> Bourbon (ideally from a Black-owned distillery), muddled blackberries, fresh lemon juice, and simple syrup.
+                                    </div>
+                                </div>
+                                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 relative">
+                                    <i class="fa-solid fa-wine-glass absolute top-6 right-6 text-white/10 text-xl"></i>
+                                    <h4 class="text-xl font-bold text-gray-100 mb-2 pr-8">Liberation Sangria</h4>
+                                    <p class="text-sm text-gray-300 mb-4">A celebratory, batch-friendly red drink for larger gatherings.</p>
+                                    <div class="bg-white/10 p-3 rounded-lg text-sm text-gray-300">
+                                        <span class="font-bold text-gray-100">Recipe idea:</span> Red wine, brandy, chopped red apples, strawberries, and a splash of sparkling water.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-center">
+                            <p class="text-yellow-500 text-sm font-bold flex items-center justify-center">
+                                <i class="fa-solid fa-triangle-exclamation mr-2"></i> Safety First: Ensure alcohol is served at a clearly labeled, separate station with non-alcoholic options equally represented.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVITIES TAB -->
+            <div id="tab-activities" class="tab-content hidden-tab space-y-12">
+                <div class="mb-8">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="p-2 rounded-lg bg-gray-100 text-black">
+                            <i class="fa-solid fa-people-group text-xl"></i>
+                        </div>
+                        <h2 class="jt-title text-3xl font-black tracking-tight">Engagement & Understanding</h2>
+                    </div>
+                    <p class="text-gray-500 font-medium ml-12">Connecting the office to the legacy.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Yesterday's Legacy Card -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-all border-t-4 border-t-[#C8102E]">
+                        <i class="fa-solid fa-book-open text-3xl text-[#C8102E] mb-6"></i>
+                        <h4 class="jt-title text-2xl font-bold mb-6 text-gray-900 min-h-[4rem]">Yesterday's Legacy</h4>
+                        <div class="space-y-5">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Timeline Walk:</strong> Hang facts down a main office hallway.
+                            </p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Trivia Hour:</strong> Give away prizes from Black-owned businesses.
+                            </p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Readings:</strong> Share Langston Hughes or Ralph Ellison excerpts.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Today's Promise Card -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-all border-t-4 border-t-[#FFB81C]">
+                        <i class="fa-solid fa-location-dot text-3xl text-[#FFB81C] mb-6"></i>
+                        <h4 class="jt-title text-2xl font-bold mb-6 text-gray-900 min-h-[4rem]">Today's Promise</h4>
+                        <div class="space-y-5">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Vendor Fair:</strong> Invite local Black makers to set up tables.
+                            </p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">The "Block Party":</strong> R&B/Soul DJ set during lunch with games.
+                            </p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Employee Spotlight:</strong> Highlight achievements of BRG members.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tomorrow's Hope Card -->
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm hover:shadow-md transition-all border-t-4 border-t-[#00843D]">
+                        <i class="fa-solid fa-music text-3xl text-[#00843D] mb-6"></i>
+                        <h4 class="jt-title text-2xl font-bold mb-6 text-gray-900 min-h-[4rem]">Tomorrow's Hope</h4>
+                        <div class="space-y-5">
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Commitment Board:</strong> Wall for employees to write equity commitments.
+                            </p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Community Service:</strong> Organize a morning volunteer mentorship event.
+                            </p>
+                            <p class="text-sm text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900">Mentorship Mixer:</strong> Host a networking hour connecting senior leaders with junior talent.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-green-700 p-8 md:p-12 rounded-[3rem] text-white flex flex-col md:flex-row items-center justify-between shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+                        <div class="w-full h-full grid grid-cols-4 gap-4 p-8">
+                            <i class="fa-solid fa-music text-6xl"></i><i class="fa-solid fa-music text-6xl"></i>
+                            <i class="fa-solid fa-music text-6xl"></i><i class="fa-solid fa-music text-6xl"></i>
+                            <i class="fa-solid fa-music text-6xl"></i><i class="fa-solid fa-music text-6xl"></i>
+                            <i class="fa-solid fa-music text-6xl"></i><i class="fa-solid fa-music text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="relative z-10 text-center md:text-left mb-8 md:mb-0">
+                        <h3 class="jt-title text-3xl font-black mb-2">The "Block Party" Vibe</h3>
+                        <p class="text-green-100 font-medium">Curate a playlist that spans Jazz, Soul, R&B, and Gospel.</p>
+                    </div>
+                    <a href="https://urldefense.com/v3/__https://open.spotify.com/search/Juneteenth__;!!B-wHijt3Cw!2EoTJ5gFZ3go3XJSCtNSYpLpy5CzuQuaAGXKkEpb5okV0NzL4F0JliKryoHPpbqW7-34e_IvbvDikHR1uA$" target="_blank" rel="noopener noreferrer" class="relative z-10 bg-white text-green-800 px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm hover:scale-105 transition-transform shadow-xl inline-block">
+                        <i class="fa-solid fa-play mr-2"></i> Sample Playlist Guide
+                    </a>
+                </div>
+            </div>
+            
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t py-12 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="flex justify-center space-x-4 mb-6">
+                    <div class="w-12 h-2 bg-red-600 rounded-full"></div>
+                    <div class="w-12 h-2 bg-black rounded-full"></div>
+                    <div class="w-12 h-2 bg-green-600 rounded-full"></div>
+                </div>
+                <p class="text-gray-400 text-sm font-bold uppercase tracking-widest">
+                    Celebrate History • Honor Excellence • Inspire Hope
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Vanilla JavaScript Logic -->
+    <script>
+        // --- TAB LOGIC ---
+        function switchTab(tabId) {
+            // Hide all tabs
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => {
+                tab.classList.add('hidden-tab');
+                tab.classList.remove('animate-slide-up'); // reset animation
+            });
+
+            // Show selected tab
+            const activeTab = document.getElementById('tab-' + tabId);
+            activeTab.classList.remove('hidden-tab');
+            
+            // Re-trigger animation
+            void activeTab.offsetWidth; 
+            activeTab.classList.add('animate-slide-up');
+
+            // Update navigation button styles
+            const allButtons = document.querySelectorAll('.tab-button');
+            allButtons.forEach(btn => {
+                if (btn.getAttribute('data-tab') === tabId) {
+                    btn.className = "tab-button flex items-center space-x-2 px-6 py-4 font-bold text-sm uppercase tracking-wider transition-all border-b-2 whitespace-nowrap border-red-600 text-red-700 bg-red-50/50";
+                } else {
+                    btn.className = "tab-button flex items-center space-x-2 px-6 py-4 font-bold text-sm uppercase tracking-wider transition-all border-b-2 whitespace-nowrap border-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-50";
+                }
+            });
+        }
+
+        // --- CHECKLIST LOGIC ---
+        let tasks = [
+            { id: 1, text: "Secure budget approval for local chapter catering & decor.", done: false },
+            { id: 2, text: "Identify & book a local Black-owned restaurant or food truck.", done: false },
+            { id: 3, text: "Send office-wide 'Save the Date' with the week's itinerary.", done: false },
+            { id: 4, text: "Coordinate with IT/AV for music & educational slide rotations.", done: false },
+            { id: 5, text: "Order Red, Black, Green, and Gold decorations (Flags, Banners).", done: false },
+            { id: 6, text: "Designate a 'Legacy Wall' for educational posters.", done: false },
+            { id: 7, text: "Purchase supplies for identified Signature Cocktails/Mocktails.", done: false },
+            { id: 8, text: "Plan for separate, clearly labeled Drink Stations.", done: false }
+        ];
+
+        function toggleTask(id) {
+            const taskIndex = tasks.findIndex(t => t.id === id);
+            if (taskIndex > -1) {
+                tasks[taskIndex].done = !tasks[taskIndex].done;
+                renderChecklist();
+            }
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            const completedCount = tasks.filter(t => t.done).length;
+            const progress = Math.round((completedCount / tasks.length) * 100);
+
+            let htmlString = `
+                <div class="mb-10 bg-white p-8 rounded-3xl shadow-sm border">
+                    <div class="flex justify-between items-end mb-4">
+                        <span class="text-sm font-black uppercase text-gray-400">Chapter Readiness</span>
+                        <span class="text-3xl font-black text-red-600">${progress}%</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-4">
+                        <div class="bg-gradient-to-r from-red-600 to-green-600 h-4 rounded-full transition-all duration-500 shadow-inner" style="width: ${progress}%"></div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+            `;
+
+            tasks.forEach(t => {
+                const wrapperClass = t.done 
+                    ? "group flex items-center p-5 rounded-2xl border-2 cursor-pointer transition-all bg-gray-50 border-gray-100 opacity-60" 
+                    : "group flex items-center p-5 rounded-2xl border-2 cursor-pointer transition-all bg-white border-gray-100 hover:border-red-200 hover:shadow-md";
+                
+                const iconClass = t.done 
+                    ? "w-8 h-8 rounded-full flex items-center justify-center mr-4 border-2 transition-all bg-green-600 border-green-600 text-white" 
+                    : "w-8 h-8 rounded-full flex items-center justify-center mr-4 border-2 transition-all border-gray-200 group-hover:border-red-400";
+                
+                const textClass = t.done 
+                    ? "text-lg font-semibold line-through text-gray-400" 
+                    : "text-lg font-semibold text-gray-800";
+
+                const checkIcon = t.done ? '<i class="fa-solid fa-check"></i>' : '';
+
+                htmlString += `
+                    <div onclick="toggleTask(${t.id})" class="${wrapperClass}">
+                        <div class="${iconClass}">
+                            ${checkIcon}
+                        </div>
+                        <span class="${textClass}">${t.text}</span>
+                    </div>
+                `;
+            });
+
+            htmlString += `</div>`;
+            container.innerHTML = htmlString;
+        }
+
+        // Initialize the app on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChecklist();
+            // Start on overview tab
+            switchTab('overview');
+        });
+    </script>
+</body>
+</html>
